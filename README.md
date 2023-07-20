@@ -1,6 +1,6 @@
 <div align="center">
 
-REST Countries API Dashboard
+<h1>REST Countries API Dashboard</h1>
 
 </div>
 
