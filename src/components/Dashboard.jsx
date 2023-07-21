@@ -11,8 +11,8 @@ const Dashboard = () => {
             <Grid item xs={12} sm={6} md={3} key={data.alpha3Code}>
               <Box
                 sx={{
-                  boxShadow: 1,
-                  borderRadius: 2,
+                  boxShadow: "0px 0px 23px 0px rgba(0,0,0,0.55)",
+
                   display: "flex",
                   flexDirection: "column",
                   height: "100%",
