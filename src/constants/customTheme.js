@@ -8,15 +8,16 @@ const getDesignTokens = (mode) => ({
           primary: amber,
           divider: amber[200],
           text: {
-            primary: grey[900],
+            primary: "hsl(200, 15%, 8%)",
             secondary: grey[800],
           },
         }
       : {
           primary: blue,
           divider: blueGrey,
+          div: "hsl(209, 23%, 22%)",
           background: {
-            default: blueGrey[900],
+            default: "hsl(207, 26%, 17%)",
             paper: blueGrey[800],
           },
           text: {

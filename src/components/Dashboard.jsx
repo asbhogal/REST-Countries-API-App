@@ -1,4 +1,12 @@
-import { Box, Container, Grid, ImageListItem, Link } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  ImageListItem,
+  Link,
+  Stack,
+  Typography,
+} from "@mui/material";
 import countriesData from "../data/data.json";
 
 const Dashboard = () => {
@@ -23,18 +31,56 @@ const Dashboard = () => {
                     src={data.flag}
                     alt={`${data.name} flag`}
                     style={{
+                      display: "flex",
                       objectFit: "cover",
                       width: "100%",
-                      height: "100%",
-                      maxHeight: "232.51px",
+                      height: "232.51px",
                     }}
                   />
                 </ImageListItem>
-                <Box p={2} sx={{ flex: "1 0 auto" }}>
-                  <p>{data.name}</p>
-                  <p>Population: {data.population}</p>
-                  <p>Region: {data.region}</p>
-                  <p>Capital: {data.capital}</p>
+                <Box p={4} sx={{ flex: "1 0 auto" }}>
+                  <Stack spacing={1}>
+                    <Typography
+                      sx={{
+                        fontSize: "21px",
+                        fontWeight: "600",
+                        mt: "0",
+                        mb: "5px",
+                      }}
+                    >
+                      {data.name}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: "600",
+                        mt: "0",
+                        mb: "0",
+                      }}
+                    >
+                      Population: {data.population}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: "600",
+                        mt: "0",
+                        mb: "0",
+                      }}
+                    >
+                      Region: {data.region}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: "600",
+                        mt: "0",
+                        mb: "0",
+                      }}
+                    >
+                      Capital: {data.capital}
+                    </Typography>
+                  </Stack>
                 </Box>
               </Box>
             </Grid>
