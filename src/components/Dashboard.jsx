@@ -19,14 +19,16 @@ const Dashboard = () => {
   const [data, getData] = useState([]);
 
   useEffect(() => {
-    client.get().then(
-      (response) => {
+    const fetchData = async () => {
+      try {
+        let response = await client.get();
+        getData(response.data);
         console.log(response.data);
-      },
-      (error) => {
+      } catch (error) {
         console.log(error);
       }
-    );
+    };
+    fetchData();
   }, []);
 
   // console.log(countriesData);
