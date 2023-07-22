@@ -8,7 +8,6 @@ import {
   Typography,
 } from "@mui/material";
 import axios from "axios";
-import countriesData from "../data/data.json";
 import { useEffect, useState } from "react";
 
 const client = axios.create({
@@ -16,13 +15,16 @@ const client = axios.create({
 });
 
 const Dashboard = () => {
-  const [data, getData] = useState([]);
+  const [country, getCountry] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         let response = await client.get();
-        getData(response.data);
+        response.data.sort((a, b) =>
+          a.name.common.localeCompare(b.name.common)
+        );
+        getCountry(response.data);
         console.log(response.data);
       } catch (error) {
         console.log(error);
@@ -36,8 +38,8 @@ const Dashboard = () => {
     <Container maxWidth="900px">
       <Link>
         <Grid container spacing={{ sm: 1, md: 8 }}>
-          {countriesData.map((data) => (
-            <Grid item xs={12} sm={6} md={3} key={data.alpha3Code}>
+          {country.map((data) => (
+            <Grid item xs={12} sm={6} md={3} key={data.cca3}>
               <Box
                 sx={{
                   boxShadow: "0px 0px 23px 0px rgba(0,0,0,0.55)",
@@ -49,8 +51,8 @@ const Dashboard = () => {
               >
                 <ImageListItem sx={{ flex: "1 0 50%" }}>
                   <img
-                    src={data.flag}
-                    alt={`${data.name} flag`}
+                    src={data.flags.png}
+                    alt={`${data.name.common} flag`}
                     style={{
                       display: "flex",
                       objectFit: "cover",
@@ -69,7 +71,7 @@ const Dashboard = () => {
                         mb: "5px",
                       }}
                     >
-                      {data.name}
+                      {data.name.common}
                     </Typography>
                     <Typography
                       sx={{
