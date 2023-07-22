@@ -7,10 +7,29 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import axios from "axios";
 import countriesData from "../data/data.json";
+import { useEffect, useState } from "react";
+
+const client = axios.create({
+  baseURL: "https://restcountries.com/v3.1/all",
+});
 
 const Dashboard = () => {
-  console.log(countriesData);
+  const [data, getData] = useState([]);
+
+  useEffect(() => {
+    client.get().then(
+      (response) => {
+        console.log(response.data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }, []);
+
+  // console.log(countriesData);
   return (
     <Container maxWidth="900px">
       <Link>
