@@ -1,9 +1,12 @@
 import { Button } from "@mui/material";
 import { useParams } from "react-router-dom";
+import { useCountryData } from "../hooks/useCountryData";
 
-const CountryInfo = ({ country }) => {
+const CountryInfo = () => {
   const { name } = useParams();
-  const countryData = country.find((data) => data.name.common === name);
+  const countryData = useCountryData().find(
+    (data) => data.name.common === name
+  );
 
   if (!countryData) {
     return <h1>No Country Info Found</h1>;

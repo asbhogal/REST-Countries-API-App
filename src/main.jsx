@@ -6,6 +6,7 @@ import customTheme from "../theme.config.js";
 import ThemeToggle from "./components/ThemeToggle.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CountryInfo from "./pages/CountryInfo.jsx";
+import { CountryProvider } from "./context/CountryContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -13,10 +14,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <ThemeToggle>
         <CssBaseline />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="/country/:name" element={<CountryInfo />} />
-          </Routes>
+          <CountryProvider>
+            <Routes>
+              <Route path="/" element={<App />} />
+              <Route path="/country/:name" element={<CountryInfo />} />
+            </Routes>
+          </CountryProvider>
         </BrowserRouter>
       </ThemeToggle>
     </ThemeProvider>

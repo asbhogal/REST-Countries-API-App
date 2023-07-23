@@ -6,13 +6,8 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
-
-const client = axios.create({
-  baseURL: "https://restcountries.com/v3.1/all",
-});
+import { useCountryData } from "../hooks/useCountryData";
 
 /* const Link = (props) => {
   return (
@@ -23,24 +18,7 @@ const client = axios.create({
 }; */
 
 const Dashboard = () => {
-  const [country, getCountry] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        let response = await client.get();
-        response.data.sort((a, b) =>
-          a.name.common.localeCompare(b.name.common)
-        );
-        getCountry(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
-
+  const country = useCountryData();
   return (
     <Container maxWidth="900px">
       <Grid container spacing={{ sm: 1, md: 8 }}>

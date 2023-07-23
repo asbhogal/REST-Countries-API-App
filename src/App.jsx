@@ -1,8 +1,10 @@
 import { Container } from "@mui/material";
 import Dashboard from "./components/Dashboard";
 import Header from "./components/Header";
+import { useCountryData } from "./hooks/useCountryData";
 
 function App() {
+  const country = useCountryData();
   return (
     <>
       <Container
@@ -10,7 +12,7 @@ function App() {
         sx={{ display: "flex", flexDirection: "column" }}
       >
         <Header />
-        <Dashboard />
+        <Dashboard country={country} />
       </Container>
     </>
   );
