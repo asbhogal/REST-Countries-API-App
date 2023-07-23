@@ -4,13 +4,15 @@ import Header from "./components/Header";
 
 function App() {
   return (
-    <Container
-      maxWidth="900px"
-      sx={{ display: "flex", flexDirection: "column" }}
-    >
-      <Header />
-      <Dashboard />
-    </Container>
+    <>
+      <Container
+        maxWidth="900px"
+        sx={{ display: "flex", flexDirection: "column" }}
+      >
+        <Header />
+        <Dashboard />
+      </Container>
+    </>
   );
 }
 

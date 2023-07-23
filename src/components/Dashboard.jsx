@@ -3,16 +3,24 @@ import {
   Container,
   Grid,
   ImageListItem,
-  Link,
   Stack,
   Typography,
 } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link as RouterLink } from "react-router-dom";
 
 const client = axios.create({
   baseURL: "https://restcountries.com/v3.1/all",
 });
+
+/* const Link = (props) => {
+  return (
+    <MuiLink underline="none" {...props}>
+      {props.children}
+    </MuiLink>
+  );
+}; */
 
 const Dashboard = () => {
   const [country, getCountry] = useState([]);
@@ -33,13 +41,12 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
-  // console.log(countriesData);
   return (
     <Container maxWidth="900px">
-      <Link>
-        <Grid container spacing={{ sm: 1, md: 8 }}>
-          {country.map((data) => (
-            <Grid item xs={12} sm={6} md={3} key={data.cca3}>
+      <Grid container spacing={{ sm: 1, md: 8 }}>
+        {country.map((data) => (
+          <Grid item xs={12} sm={6} md={3} key={data.cca3}>
+            <RouterLink to={`/country/${data.name.common}`}>
               <Box
                 sx={{
                   boxShadow: "0px 0px 23px 0px rgba(0,0,0,0.55)",
@@ -63,16 +70,19 @@ const Dashboard = () => {
                 </ImageListItem>
                 <Box p={4} sx={{ flex: "1 0 auto" }}>
                   <Stack spacing={1}>
-                    <Typography
-                      sx={{
-                        fontSize: "21px",
-                        fontWeight: "600",
-                        mt: "0",
-                        mb: "5px",
-                      }}
-                    >
-                      {data.name.common}
-                    </Typography>
+                    <Box sx={{ textDecoration: "none" }}>
+                      <Typography
+                        sx={{
+                          fontSize: "21px",
+                          fontWeight: "600",
+                          mt: "0",
+                          mb: "5px",
+                          textDecoration: "none",
+                        }}
+                      >
+                        {data.name.common}
+                      </Typography>
+                    </Box>
                     <Typography
                       sx={{
                         fontSize: "14px",
@@ -106,10 +116,10 @@ const Dashboard = () => {
                   </Stack>
                 </Box>
               </Box>
-            </Grid>
-          ))}
-        </Grid>
-      </Link>
+            </RouterLink>
+          </Grid>
+        ))}
+      </Grid>
     </Container>
   );
 };
