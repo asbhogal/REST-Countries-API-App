@@ -26,8 +26,10 @@ function CountryProvider({ children }) {
     fetchData();
   }, []);
 
+  const regions = [...new Set(country.map((data) => data.region))];
+
   return (
-    <CountryContext.Provider value={{ country }}>
+    <CountryContext.Provider value={{ country, regions }}>
       {children}
     </CountryContext.Provider>
   );

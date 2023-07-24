@@ -9,6 +9,8 @@ import {
 import { Link as RouterLink } from "react-router-dom";
 import { useCountryData } from "../hooks/useCountryData";
 import formatPopulation from "../functions/formatPopulation";
+import FilterMenu from "./FilterMenu";
+import { useState } from "react";
 
 /* const Link = (props) => {
   return (
@@ -19,17 +21,21 @@ import formatPopulation from "../functions/formatPopulation";
 }; */
 
 const Dashboard = () => {
-  const country = useCountryData();
+  const countries = useCountryData();
+  const [selectedRegion, setSelectedRegion] = useState(null);
+  const filteredRegion = selectedRegion
+    ? countries.filter((country) => country.region === selectedRegion)
+    : countries;
+
   return (
     <Container maxWidth="900px">
+      <FilterMenu setSelectedRegion={setSelectedRegion} />
       <Grid container spacing={{ sm: 1, md: 8 }}>
-        {country.map((data) => (
-          <Grid item xs={12} sm={6} md={3} key={data.cca3}>
+        {filteredRegion.map((data) => (
+          <Grid item xs={12} sm={6} md={3} key={data.name.common}>
             <RouterLink to={`/country/${data.name.common}`}>
               <Box
                 sx={{
-                  boxShadow: "0px 0px 23px 0px rgba(0,0,0,0.55)",
-
                   display: "flex",
                   flexDirection: "column",
                   height: "100%",
