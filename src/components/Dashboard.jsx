@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { useCountryData } from "../hooks/useCountryData";
+import formatPopulation from "../functions/formatPopulation";
 
 /* const Link = (props) => {
   return (
@@ -69,7 +70,7 @@ const Dashboard = () => {
                         mb: "0",
                       }}
                     >
-                      Population: {data.population}
+                      Population: {formatPopulation(data.population)}
                     </Typography>
                     <Typography
                       sx={{
