@@ -44,12 +44,21 @@ const Dashboard = () => {
 
   return (
     <Container maxWidth="900px">
-      <Grid container>
+      <Grid
+        container
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          paddingTop: "20px",
+          paddingBottom: "20px",
+        }}
+      >
         <TextField
           label="Search for country"
           variant="outlined"
           value={searchQuery}
           onChange={handleSearchEvent}
+          sx={{ width: "450px" }}
         />
         <FilterMenu setSelectedRegion={setSelectedRegion} />
       </Grid>
