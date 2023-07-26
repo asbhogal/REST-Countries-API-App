@@ -13,6 +13,7 @@ import { useTheme } from "@mui/material/styles";
 import formatPopulation from "../functions/formatPopulation";
 import FilterMenu from "./FilterMenu";
 import { useState } from "react";
+import useStyles from "../functions/useStyles";
 
 /* const Link = (props) => {
   return (
@@ -24,6 +25,7 @@ import { useState } from "react";
 
 const Dashboard = () => {
   const theme = useTheme();
+  const classes = useStyles();
   const countries = useCountryData();
   const [selectedRegion, setSelectedRegion] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -49,6 +51,7 @@ const Dashboard = () => {
         sx={{
           display: "flex",
           justifyContent: "space-between",
+          gap: "20px",
           paddingTop: "20px",
           paddingBottom: "20px",
         }}
@@ -58,7 +61,11 @@ const Dashboard = () => {
           variant="outlined"
           value={searchQuery}
           onChange={handleSearchEvent}
-          sx={{ width: "450px" }}
+          sx={{
+            ...classes.textFieldStyle,
+            width: "450px",
+            boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.50)",
+          }}
         />
         <FilterMenu setSelectedRegion={setSelectedRegion} />
       </Grid>
@@ -81,7 +88,7 @@ const Dashboard = () => {
                     height: "100%",
                     backgroundColor: theme.palette.secondaryColor,
                     borderRadius: "1px",
-                    boxShadow: "0px 0px 20px 0px rgba(0,0,0,0.39)",
+                    boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.50)",
                   }}
                 >
                   <img

@@ -11,8 +11,10 @@ import { useParams, Link as RouterLink } from "react-router-dom";
 import { useCountryData } from "../hooks/useCountryData";
 import formatPopulation from "../functions/formatPopulation";
 import Header from "../components/Header";
+import useStyles from "../functions/useStyles";
 
 const CountryInfo = () => {
+  const classes = useStyles();
   const { name } = useParams();
   const countryData = useCountryData().find(
     (data) => data.name.common === name
@@ -48,7 +50,7 @@ const CountryInfo = () => {
           variant="contained"
           component={RouterLink}
           to="/"
-          sx={{ width: "min-content" }}
+          sx={{ ...classes.buttonStyle, width: "min-content" }}
         >
           Back
         </Button>

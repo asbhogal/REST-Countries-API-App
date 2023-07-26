@@ -32,6 +32,9 @@ const theme = createTheme({
         src: url(node_modules/@fontsource/nunito-sans/600.css) format('woff2');
       }`,
     },
+    MuiTextField: {
+      outline: "none",
+    },
   },
 });
 

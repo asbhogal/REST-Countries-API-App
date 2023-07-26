@@ -1,4 +1,4 @@
-import { Button, Menu, MenuItem, useTheme } from "@mui/material";
+import { Button, Menu, MenuItem } from "@mui/material";
 import useStyles from "../functions/useStyles";
 import { useContext, useState } from "react";
 import { CountryContext } from "../context/CountryContext";
@@ -6,7 +6,6 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function FilterMenu({ setSelectedRegion }) {
-  const theme = useTheme();
   const classes = useStyles();
   const { regions } = useContext(CountryContext);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -30,7 +29,12 @@ export default function FilterMenu({ setSelectedRegion }) {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
-        sx={classes.buttonStyle}
+        sx={{
+          ...classes.buttonStyle,
+          height: "56px",
+          padding: "0 20px",
+          boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.50)",
+        }}
       >
         FILTER BY REGION {isClicked ? <ExpandLessIcon /> : <ExpandMoreIcon />}
       </Button>
@@ -42,7 +46,15 @@ export default function FilterMenu({ setSelectedRegion }) {
         MenuListProps={{ "aria-labelledby": "filter-button" }}
       >
         {regions.map((region) => (
-          <MenuItem key={region} onClick={() => setSelectedRegion(region)}>
+          <MenuItem
+            key={region}
+            onClick={() => setSelectedRegion(region)}
+            sx={{
+              ...classes.buttonStyle,
+              width: "150px",
+              height: "40px",
+            }}
+          >
             {region}
           </MenuItem>
         ))}

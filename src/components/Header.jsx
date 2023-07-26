@@ -17,12 +17,17 @@ const Header = () => {
         alignItems: "center",
         justifyContent: "space-between",
         height: "85px",
-        boxShadow: "0px 0px 20px 0px rgba(0,0,0,0.39)",
+        boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.50)",
         backgroundColor: theme.palette.secondaryColor,
       }}
     >
-      <Typography variant="h1" fontSize={28} gutterBottom>
-        Countries Dashboard
+      <Typography
+        variant="h1"
+        fontSize={28}
+        sx={{ marginBottom: "0" }}
+        gutterBottom
+      >
+        Where in the world?
       </Typography>
       <IconButton
         sx={{ ml: 1 }}
