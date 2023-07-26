@@ -9,6 +9,7 @@ function App() {
     <>
       <Container
         maxWidth="900px"
+        disableGutters
         sx={{ display: "flex", flexDirection: "column" }}
       >
         <Header />

@@ -40,19 +40,34 @@ const CountryInfo = () => {
   return (
     <>
       <Header />
-      <Container maxWidth="900px">
-        <Button variant="contained" component={RouterLink} to="/">
+      <Container
+        maxWidth="900px"
+        sx={{ display: "flex", flexDirection: "column" }}
+      >
+        <Button
+          variant="contained"
+          component={RouterLink}
+          to="/"
+          sx={{ width: "min-content" }}
+        >
           Back
         </Button>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={16}>
           <Grid item xs={isSmallScreen ? 16 : 8} md={8}>
             <img
               src={countryData.flags.png}
-              alt={`${countryData.name.common} flag`}
+              alt={countryData.flags.alt}
+              style={{
+                width: isSmallScreen ? "100%" : "auto",
+                height: isSmallScreen ? "100%" : "390px",
+                objectFit: "cover",
+              }}
             />
           </Grid>
           <Grid item xs={16} md={8}>
-            <Typography variant="h2">{countryName}</Typography>
+            <Typography sx={{ fontSize: "24px", fontWeight: "600" }}>
+              {countryName}
+            </Typography>
             <Grid container>
               <Box>
                 <Stack>

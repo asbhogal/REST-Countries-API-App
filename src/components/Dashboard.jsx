@@ -1,13 +1,7 @@
-import {
-  Box,
-  Container,
-  Grid,
-  ImageListItem,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { useCountryData } from "../hooks/useCountryData";
+import { useTheme } from "@mui/material/styles";
 import formatPopulation from "../functions/formatPopulation";
 import FilterMenu from "./FilterMenu";
 import { useState } from "react";
@@ -21,6 +15,7 @@ import { useState } from "react";
 }; */
 
 const Dashboard = () => {
+  const theme = useTheme();
   const countries = useCountryData();
   const [selectedRegion, setSelectedRegion] = useState(null);
   const filteredRegion = selectedRegion
@@ -29,7 +24,9 @@ const Dashboard = () => {
 
   return (
     <Container maxWidth="900px">
-      <FilterMenu setSelectedRegion={setSelectedRegion} />
+      <Grid container>
+        <FilterMenu setSelectedRegion={setSelectedRegion} />
+      </Grid>
       <Grid container spacing={{ sm: 1, md: 8 }}>
         {filteredRegion.map((data) => (
           <Grid item xs={12} sm={6} md={3} key={data.name.common}>
@@ -39,20 +36,22 @@ const Dashboard = () => {
                   display: "flex",
                   flexDirection: "column",
                   height: "100%",
+                  backgroundColor: theme.palette.secondaryColor,
+                  borderRadius: "1px",
                 }}
               >
-                <ImageListItem sx={{ flex: "1 0 50%" }}>
-                  <img
-                    src={data.flags.png}
-                    alt={`${data.name.common} flag`}
-                    style={{
-                      display: "flex",
-                      objectFit: "cover",
-                      width: "100%",
-                      height: "232.51px",
-                    }}
-                  />
-                </ImageListItem>
+                <img
+                  src={data.flags.png}
+                  alt={data.flags.alt}
+                  style={{
+                    display: "flex",
+                    flex: "1 0 50%",
+                    objectFit: "cover",
+                    width: "100%",
+                    height: "232.51px",
+                  }}
+                />
+
                 <Box p={4} sx={{ flex: "1 0 auto" }}>
                   <Stack spacing={1}>
                     <Box sx={{ textDecoration: "none" }}>

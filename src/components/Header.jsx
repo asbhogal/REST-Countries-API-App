@@ -18,6 +18,7 @@ const Header = () => {
         justifyContent: "space-between",
         height: "85px",
         borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+        backgroundColor: theme.palette.secondaryColor,
       }}
     >
       <Typography variant="h1" fontSize={28} gutterBottom>
