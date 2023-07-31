@@ -69,7 +69,7 @@ const Dashboard = () => {
         />
         <FilterMenu setSelectedRegion={setSelectedRegion} />
       </Grid>
-      <Grid container spacing={{ sm: 1, md: 8, lg: 10 }}>
+      <Grid container spacing={{ sm: 2, md: 3, lg: 10 }}>
         {(searchQuery ? filteredCountries : filteredRegion).length > 0 ? (
           (searchQuery ? filteredCountries : filteredRegion).map((data) => (
             <Grid item xs={12} sm={6} md={3} key={data.name.common}>
