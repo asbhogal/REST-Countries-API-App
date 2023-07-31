@@ -24,6 +24,7 @@ const CountryInfo = () => {
 
   const {
     name: { official: countryName } = {},
+    borders,
     capital,
     currencies,
     languages,
@@ -50,46 +51,77 @@ const CountryInfo = () => {
           variant="contained"
           component={RouterLink}
           to="/"
-          sx={{ ...classes.buttonStyle, width: "min-content" }}
+          sx={{
+            ...classes.buttonStyle,
+            width: "min-content",
+            margin: "20px 0",
+          }}
         >
           Back
         </Button>
-        <Grid container spacing={{ xs: 1, md: 2 }} columns={16}>
-          <Grid item xs={isSmallScreen ? 16 : 8} md={8}>
+        <Grid container spacing={{ xs: 1, md: 2 }}>
+          <Grid item xs={12} md={isSmallScreen ? 12 : 6}>
             <img
               src={countryData.flags.png}
               alt={countryData.flags.alt}
               style={{
-                width: isSmallScreen ? "100%" : "auto",
+                width: "100%",
                 height: isSmallScreen ? "100%" : "390px",
                 objectFit: "cover",
               }}
             />
           </Grid>
-          <Grid item xs={16} md={8}>
-            <Typography sx={{ fontSize: "24px", fontWeight: "600" }}>
-              {countryName}
-            </Typography>
-            <Grid container>
-              <Box>
-                <Stack>
-                  <Typography>Native Name: TBA</Typography>
-                  <Typography>
-                    Population: {formatPopulation(population)}
-                  </Typography>
-                  <Typography>Region: {region}</Typography>
-                  <Typography>Sub Region:{subregion}</Typography>
-                  <Typography>Capital: {capital}</Typography>
-                </Stack>
-              </Box>
-              <Box>
-                <Stack>
-                  <Typography>Top Level Domain: {tld}</Typography>
-                  <Typography>Currencies: {currenciesList}</Typography>
-                  <Typography>Languages: {languagesList}</Typography>
-                </Stack>
-              </Box>
-            </Grid>
+          <Grid
+            item
+            xs={12}
+            md={isSmallScreen ? 12 : 6}
+            sx={{ justifyContent: "space-between" }}
+          >
+            <Box
+              sx={{
+                padding: isSmallScreen ? "10px" : "0",
+              }}
+            >
+              <Typography sx={{ fontSize: "24px", fontWeight: "600" }}>
+                {countryName}
+              </Typography>
+              <Grid container>
+                <Box>
+                  <Stack>
+                    <Typography>Native Name: TBA</Typography>
+                    <Typography>
+                      Population: {formatPopulation(population)}
+                    </Typography>
+                    <Typography>Region: {region}</Typography>
+                    <Typography>Sub Region:{subregion}</Typography>
+                    <Typography>Capital: {capital}</Typography>
+                  </Stack>
+                </Box>
+                <Box>
+                  <Stack>
+                    <Typography>Top Level Domain: {tld}</Typography>
+                    <Typography>Currencies: {currenciesList}</Typography>
+                    <Typography>Languages: {languagesList}</Typography>
+                  </Stack>
+                </Box>
+              </Grid>
+              <Stack direction={isSmallScreen ? "column" : "row"} spacing={1}>
+                Border Countries:
+                {borders.map((border) => (
+                  <Button
+                    key={border}
+                    component={RouterLink}
+                    to={`/country/${name}`}
+                    sx={{
+                      ...classes.buttonStyle,
+                      width: "min-content",
+                    }}
+                  >
+                    {border}
+                  </Button>
+                ))}
+              </Stack>
+            </Box>
           </Grid>
         </Grid>
       </Container>
