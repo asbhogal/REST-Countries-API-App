@@ -9,7 +9,6 @@ const client = axios.create({
 
 function CountryProvider({ children }) {
   const [country, getCountry] = useState([]);
-  const [borderCountries, setBorderCountries] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,9 +29,7 @@ function CountryProvider({ children }) {
   const regions = [...new Set(country.map((data) => data.region))];
 
   return (
-    <CountryContext.Provider
-      value={{ country, regions, borderCountries, setBorderCountries }}
-    >
+    <CountryContext.Provider value={{ country, regions }}>
       {children}
     </CountryContext.Provider>
   );

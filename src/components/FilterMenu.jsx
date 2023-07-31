@@ -11,6 +11,7 @@ export default function FilterMenu({ setSelectedRegion }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const [isClicked, setIsClicked] = useState(false);
   const open = Boolean(anchorEl);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
     setIsClicked(true);
@@ -48,7 +49,10 @@ export default function FilterMenu({ setSelectedRegion }) {
         {regions.map((region) => (
           <MenuItem
             key={region}
-            onClick={() => setSelectedRegion(region)}
+            onClick={() => {
+              setSelectedRegion(region);
+              handleClose();
+            }}
             sx={{
               ...classes.buttonStyle,
               width: "150px",
