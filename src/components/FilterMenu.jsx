@@ -10,6 +10,7 @@ export default function FilterMenu({ setSelectedRegion }) {
   const { regions } = useContext(CountryContext);
   const [anchorEl, setAnchorEl] = useState(null);
   const [isClicked, setIsClicked] = useState(false);
+  const [selectedRegionInternal, setSelectedRegionInternal] = useState(null);
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
@@ -20,6 +21,12 @@ export default function FilterMenu({ setSelectedRegion }) {
   const handleClose = () => {
     setAnchorEl(null);
     setIsClicked(false);
+  };
+
+  const handleRegionSelect = (region) => {
+    setSelectedRegionInternal(region);
+    setSelectedRegion(region);
+    handleClose();
   };
 
   return (
@@ -37,7 +44,8 @@ export default function FilterMenu({ setSelectedRegion }) {
           boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.50)",
         }}
       >
-        FILTER BY REGION {isClicked ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+        {selectedRegionInternal || "FILTER BY REGION"}{" "}
+        {isClicked ? <ExpandLessIcon /> : <ExpandMoreIcon />}
       </Button>
       <Menu
         className="filter-button"
@@ -50,8 +58,8 @@ export default function FilterMenu({ setSelectedRegion }) {
           <MenuItem
             key={region}
             onClick={() => {
-              setSelectedRegion(region);
               handleClose();
+              handleRegionSelect(region);
             }}
             sx={{
               ...classes.buttonStyle,
