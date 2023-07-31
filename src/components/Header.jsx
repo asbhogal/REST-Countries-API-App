@@ -21,12 +21,7 @@ const Header = () => {
         backgroundColor: theme.palette.secondaryColor,
       }}
     >
-      <Typography
-        variant="h1"
-        fontSize={28}
-        sx={{ marginBottom: "0" }}
-        gutterBottom
-      >
+      <Typography fontSize={28} sx={{ marginBottom: "0" }} gutterBottom>
         Where in the world?
       </Typography>
       <IconButton
