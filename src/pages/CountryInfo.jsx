@@ -37,6 +37,8 @@ const CountryInfo = () => {
   const currenciesList = currencies ? Object.values(currencies)[0].name : "";
   const languagesList = languages ? Object.values(languages).join(", ") : "";
 
+  const borderCountries = borders || [];
+
   if (!countryData) {
     return <h1>No Country Info Found</h1>;
   }
@@ -44,8 +46,7 @@ const CountryInfo = () => {
     <>
       <Header />
       <Container
-        maxWidth="900px"
-        sx={{ display: "flex", flexDirection: "column" }}
+        sx={{ display: "flex", flexDirection: "column", maxWidth: "1195px" }}
       >
         <Button
           variant="contained"
@@ -107,11 +108,12 @@ const CountryInfo = () => {
               </Grid>
               <Stack direction={isSmallScreen ? "column" : "row"} spacing={1}>
                 Border Countries:
-                {borders.map((border) => (
+                {borderCountries.map((border) => (
                   <Button
                     key={border}
                     component={RouterLink}
-                    to={`/country/${name}`}
+                    to={`/country/${encodeURIComponent(border)}`}
+                    variant="contained"
                     sx={{
                       ...classes.buttonStyle,
                       width: "min-content",
