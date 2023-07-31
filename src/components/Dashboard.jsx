@@ -93,7 +93,7 @@ const Dashboard = () => {
                 >
                   <img
                     src={data.flags.png}
-                    alt={data.flags.alt}
+                    alt={data.flags.alt || `The flag of ${data.name.common}`}
                     style={{
                       display: "flex",
                       flex: "1 0 50%",
