@@ -7,7 +7,7 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import { useParams, Link as RouterLink } from "react-router-dom";
+import { useParams, Link as RouterLink, useNavigate } from "react-router-dom";
 import { useCountryData } from "../hooks/useCountryData";
 import formatPopulation from "../functions/formatPopulation";
 import Header from "../components/Header";
@@ -19,6 +19,27 @@ const CountryInfo = () => {
   const countryData = useCountryData().find(
     (data) => data.name.common === name
   );
+
+  const navigate = useNavigate();
+  const countries = useCountryData();
+
+  const findCountryByAltSpelling = (borderValue) => {
+    const countryWithAltSpelling = countries.find(
+      (data) => data.cca3 && data.cca3 === borderValue
+    );
+    return countryWithAltSpelling;
+  };
+
+  const handleBorderButtonClick = (border) => {
+    const countryWithAltSpelling = findCountryByAltSpelling(border);
+    countryWithAltSpelling
+      ? handleNavigate(countryWithAltSpelling.name.common)
+      : console.log(`Border country '${border}' not found.`);
+  };
+
+  const handleNavigate = (countryName) => {
+    navigate(`/country/${countryName}`);
+  };
 
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
@@ -107,17 +128,11 @@ const CountryInfo = () => {
                 </Box>
               </Grid>
               <Stack direction={isSmallScreen ? "column" : "row"} spacing={1}>
-                Border Countries:
                 {borderCountries.map((border) => (
                   <Button
                     key={border}
-                    component={RouterLink}
-                    to={`/country/${encodeURIComponent(border)}`}
-                    variant="contained"
-                    sx={{
-                      ...classes.buttonStyle,
-                      width: "min-content",
-                    }}
+                    variant="outlined"
+                    onClick={() => handleBorderButtonClick(border)}
                   >
                     {border}
                   </Button>
