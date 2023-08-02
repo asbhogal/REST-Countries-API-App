@@ -80,18 +80,18 @@ const CountryInfo = () => {
     <>
       <Header />
       <Container
-        sx={{ display: "flex", flexDirection: "column", maxWidth: "1000px" }}
+        sx={{ display: "flex", flexDirection: "column", maxWidth: "62.5rem" }}
       >
         <Button
           component={RouterLink}
           to="/"
           sx={{
             ...classes.buttonStyle,
-            boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.50)",
+            boxShadow: "0rem 0rem .625rem 0rem rgba(0,0,0,0.50)",
 
             width: "min-content",
-            margin: { xs: "20px 0", sm: "20px 0", md: "75px 0" },
-            gap: "5px",
+            margin: { xs: "1.25rem 0", sm: "1.25rem 0", md: "4.6875rem 0" },
+            gap: ".3125rem",
           }}
         >
           <KeyboardBackspaceIcon />
@@ -102,7 +102,7 @@ const CountryInfo = () => {
           spacing={{ xs: 1, md: 2 }}
           alignItems="center"
           sx={{
-            gap: { xs: 1, md: 2, lg: "50px" },
+            gap: { xs: 1, md: 2, lg: "3.125rem" },
             flexWrap: isMediumScreen ? "nowrap" : "wrap",
           }}
         >
@@ -115,7 +115,7 @@ const CountryInfo = () => {
               }
               style={{
                 width: "100%",
-                height: isSmallScreen ? "100%" : "390px",
+                height: isSmallScreen ? "100%" : "24.375rem",
                 objectFit: "cover",
               }}
             />
@@ -128,18 +128,18 @@ const CountryInfo = () => {
           >
             <Box
               sx={{
-                padding: isSmallScreen ? "10px" : "0",
+                padding: isSmallScreen ? ".625rem" : "0",
               }}
             >
               <Typography
-                sx={{ fontSize: "24px", fontWeight: "600", mb: "15px" }}
+                sx={{ fontSize: "1.5rem", fontWeight: "600", mb: ".9375rem" }}
               >
                 {countryName}
               </Typography>
-              <Grid container sx={{ gap: { xs: 1, md: 2, lg: "50px" } }}>
+              <Grid container sx={{ gap: { xs: 1, md: 2, lg: "3.125rem" } }}>
                 <Box>
                   <Stack gap={0.5}>
-                    <Box sx={{ display: "flex", gap: "5px" }}>
+                    <Box sx={{ display: "flex", gap: ".3125rem" }}>
                       <Typography sx={{ fontWeight: "600" }}>
                         Native Name:
                       </Typography>
@@ -148,28 +148,28 @@ const CountryInfo = () => {
                       </Typography>
                     </Box>
 
-                    <Box sx={{ display: "flex", gap: "5px" }}>
+                    <Box sx={{ display: "flex", gap: ".3125rem" }}>
                       <Typography sx={{ fontWeight: "600" }}>
                         Population:
                       </Typography>
                       <Typography>{formatPopulation(population)}</Typography>
                     </Box>
 
-                    <Box sx={{ display: "flex", gap: "5px" }}>
+                    <Box sx={{ display: "flex", gap: ".3125rem" }}>
                       <Typography sx={{ fontWeight: "600" }}>
                         Region:
                       </Typography>
                       <Typography>{region}</Typography>
                     </Box>
 
-                    <Box sx={{ display: "flex", gap: "5px" }}>
+                    <Box sx={{ display: "flex", gap: ".3125rem" }}>
                       <Typography sx={{ fontWeight: "600" }}>
                         Sub Region:
                       </Typography>
                       <Typography>{subregion}</Typography>
                     </Box>
 
-                    <Box sx={{ display: "flex", gap: "5px" }}>
+                    <Box sx={{ display: "flex", gap: ".3125rem" }}>
                       <Typography sx={{ fontWeight: "600" }}>
                         Capital:
                       </Typography>
@@ -179,21 +179,21 @@ const CountryInfo = () => {
                 </Box>
                 <Box>
                   <Stack gap={0.5}>
-                    <Box sx={{ display: "flex", gap: "5px" }}>
+                    <Box sx={{ display: "flex", gap: ".3125rem" }}>
                       <Typography sx={{ fontWeight: "600" }}>
                         Top Level Domain:
                       </Typography>
                       <Typography>{tld}</Typography>
                     </Box>
 
-                    <Box sx={{ display: "flex", gap: "5px" }}>
+                    <Box sx={{ display: "flex", gap: ".3125rem" }}>
                       <Typography sx={{ fontWeight: "600" }}>
                         Currencies:
                       </Typography>
                       <Typography>{currenciesList}</Typography>
                     </Box>
 
-                    <Box sx={{ display: "flex", gap: "5px" }}>
+                    <Box sx={{ display: "flex", gap: ".3125rem" }}>
                       <Typography sx={{ fontWeight: "600" }}>
                         Languages:
                       </Typography>
@@ -209,8 +209,8 @@ const CountryInfo = () => {
                   display: "flex",
                   flexWrap: "wrap",
                   alignItems: "center",
-                  gap: "5px",
-                  mt: "40px",
+                  gap: ".3125rem",
+                  mt: "2.5rem",
                 }}
               >
                 Border Countries:
@@ -219,7 +219,7 @@ const CountryInfo = () => {
                     key={border}
                     sx={{
                       ...classes.buttonStyle,
-                      boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.50)",
+                      boxShadow: "0rem 0rem .625rem 0rem rgba(0,0,0,0.50)",
                     }}
                     onClick={() => handleBorderButtonClick(border)}
                   >

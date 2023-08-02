@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Container
-        maxWidth="900px"
+        maxWidth="56.25rem"
         disableGutters
         sx={{ display: "flex", flexDirection: "column" }}
       >

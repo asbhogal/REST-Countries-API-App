@@ -11,13 +11,13 @@ const Header = () => {
   return (
     <Container
       height={6}
-      maxWidth="1200px"
+      maxWidth="75rem"
       sx={{
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        height: "85px",
-        boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.50)",
+        height: "5.3125rem",
+        boxShadow: "0rem 0rem .625rem 0rem rgba(0,0,0,0.50)",
         backgroundColor: theme.palette.secondaryColor,
       }}
     >

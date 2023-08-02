@@ -39,9 +39,9 @@ export default function FilterMenu({ setSelectedRegion }) {
         onClick={handleClick}
         sx={{
           ...classes.buttonStyle,
-          height: "56px",
-          padding: "0 20px",
-          boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.50)",
+          height: "3.5rem",
+          padding: "0 1.25rem",
+          boxShadow: "0rem 0rem .625rem 0rem rgba(0,0,0,0.50)",
         }}
       >
         {selectedRegionInternal || "FILTER BY REGION"}{" "}
@@ -54,7 +54,7 @@ export default function FilterMenu({ setSelectedRegion }) {
         onClose={handleClose}
         MenuListProps={{ "aria-labelledby": "filter-button" }}
         sx={{
-          mt: "40px",
+          mt: "2.5rem",
           "& ul": {
             padding: 0,
           },
@@ -69,9 +69,9 @@ export default function FilterMenu({ setSelectedRegion }) {
             }}
             sx={{
               ...classes.buttonStyle,
-              width: "150px",
-              height: "40px",
-              padding: "10px",
+              width: "9.375rem",
+              height: "2.5rem",
+              padding: ".625rem",
             }}
           >
             {region}

@@ -43,15 +43,15 @@ const Dashboard = () => {
     : [];
 
   return (
-    <Container maxWidth="900px">
+    <Container maxWidth="56.25rem">
       <Grid
         container
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          gap: "20px",
-          paddingTop: "20px",
-          paddingBottom: "20px",
+          gap: "1.25rem",
+          paddingTop: "1.25rem",
+          paddingBottom: "1.25rem",
         }}
       >
         <TextField
@@ -61,8 +61,8 @@ const Dashboard = () => {
           onChange={handleSearchEvent}
           sx={{
             ...classes.textFieldStyle,
-            width: "450px",
-            boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.50)",
+            width: "28.125rem",
+            boxShadow: "0rem 0rem .625rem 0rem rgba(0,0,0,0.50)",
           }}
         />
         <FilterMenu setSelectedRegion={setSelectedRegion} />
@@ -71,8 +71,8 @@ const Dashboard = () => {
         container
         spacing={{ sm: 2, md: 3, lg: 10 }}
         sx={{
-          "@media (max-width: 600px)": {
-            gap: "20px",
+          "@media (max-width: 37.5rem)": {
+            gap: "1.25rem",
           },
         }}
       >
@@ -99,8 +99,8 @@ const Dashboard = () => {
                     flexDirection: "column",
                     height: "100%",
                     backgroundColor: theme.palette.secondaryColor,
-                    borderRadius: "1px",
-                    boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.50)",
+                    borderRadius: ".0625rem",
+                    boxShadow: "0rem 0rem .625rem 0rem rgba(0,0,0,0.50)",
                   }}
                 >
                   <img
@@ -111,7 +111,7 @@ const Dashboard = () => {
                       flex: "1 0 50%",
                       objectFit: "cover",
                       width: "100%",
-                      height: "232.51px",
+                      height: "14.5319rem",
                     }}
                   />
 
@@ -120,10 +120,10 @@ const Dashboard = () => {
                       <Box sx={{ textDecoration: "none" }}>
                         <Typography
                           sx={{
-                            fontSize: "21px",
+                            fontSize: "1.3125rem",
                             fontWeight: "600",
                             mt: "0",
-                            mb: "5px",
+                            mb: ".3125rem",
                             textDecoration: "none",
                           }}
                         >
@@ -131,35 +131,35 @@ const Dashboard = () => {
                         </Typography>
                       </Box>
 
-                      <Box sx={{ display: "flex", gap: "5px" }}>
+                      <Box sx={{ display: "flex", gap: ".3125rem" }}>
                         <Typography
-                          sx={{ fontWeight: "600", fontSize: "16px" }}
+                          sx={{ fontWeight: "600", fontSize: "1rem" }}
                         >
                           Population:
                         </Typography>
-                        <Typography sx={{ fontSize: "16px" }}>
+                        <Typography sx={{ fontSize: "1rem" }}>
                           {formatPopulation(data.population)}
                         </Typography>
                       </Box>
 
-                      <Box sx={{ display: "flex", gap: "5px" }}>
+                      <Box sx={{ display: "flex", gap: ".3125rem" }}>
                         <Typography
-                          sx={{ fontWeight: "600", fontSize: "16px" }}
+                          sx={{ fontWeight: "600", fontSize: "1rem" }}
                         >
                           Region:
                         </Typography>
-                        <Typography sx={{ fontSize: "16px" }}>
+                        <Typography sx={{ fontSize: "1rem" }}>
                           {data.region}
                         </Typography>
                       </Box>
 
-                      <Box sx={{ display: "flex", gap: "5px" }}>
+                      <Box sx={{ display: "flex", gap: ".3125rem" }}>
                         <Typography
-                          sx={{ fontWeight: "600", fontSize: "16px" }}
+                          sx={{ fontWeight: "600", fontSize: "1rem" }}
                         >
                           Capital:
                         </Typography>
-                        <Typography sx={{ fontSize: "16px" }}>
+                        <Typography sx={{ fontSize: "1rem" }}>
                           {data.capital}
                         </Typography>
                       </Box>
@@ -179,9 +179,9 @@ const Dashboard = () => {
             <Button
               sx={{
                 ...classes.buttonStyle,
-                height: "56px",
-                padding: "0 20px",
-                boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.50)",
+                height: "3.5rem",
+                padding: "0 1.25rem",
+                boxShadow: "0rem 0rem .625rem 0rem rgba(0,0,0,0.50)",
               }}
               onClick={handleViewMoreCountries}
             >
