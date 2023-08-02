@@ -18,7 +18,6 @@ function CountryProvider({ children }) {
           a.name.common.localeCompare(b.name.common)
         );
         getCountry(response.data);
-        console.log(response.data);
       } catch (error) {
         console.log(error);
       }

@@ -16,14 +16,6 @@ import FilterMenu from "./FilterMenu";
 import { useState } from "react";
 import useStyles from "../functions/useStyles";
 
-/* const Link = (props) => {
-  return (
-    <MuiLink underline="none" {...props}>
-      {props.children}
-    </MuiLink>
-  );
-}; */
-
 const Dashboard = () => {
   const theme = useTheme();
   const classes = useStyles();
