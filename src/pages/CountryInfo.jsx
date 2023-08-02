@@ -84,7 +84,7 @@ const CountryInfo = () => {
         <Grid container spacing={{ xs: 1, md: 2 }}>
           <Grid item xs={12} md={isSmallScreen ? 12 : 6}>
             <img
-              src={countryData.flags.svg}
+              src={countryData.flags.png}
               alt={
                 countryData.flags.alt ||
                 `The flag of ${countryData.name.common}`
