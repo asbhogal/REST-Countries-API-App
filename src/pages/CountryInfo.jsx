@@ -7,6 +7,7 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { useParams, Link as RouterLink, useNavigate } from "react-router-dom";
 import { useCountryData } from "../hooks/useCountryData";
 import formatPopulation from "../functions/formatPopulation";
@@ -67,18 +68,21 @@ const CountryInfo = () => {
     <>
       <Header />
       <Container
-        sx={{ display: "flex", flexDirection: "column", maxWidth: "1195px" }}
+        sx={{ display: "flex", flexDirection: "column", maxWidth: "1000px" }}
       >
         <Button
-          variant="contained"
           component={RouterLink}
           to="/"
           sx={{
             ...classes.buttonStyle,
+            boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.50)",
+
             width: "min-content",
-            margin: "20px 0",
+            margin: "75px 0",
+            gap: "5px",
           }}
         >
+          <KeyboardBackspaceIcon />
           Back
         </Button>
         <Grid container spacing={{ xs: 1, md: 2 }}>
@@ -107,12 +111,14 @@ const CountryInfo = () => {
                 padding: isSmallScreen ? "10px" : "0",
               }}
             >
-              <Typography sx={{ fontSize: "24px", fontWeight: "600" }}>
+              <Typography
+                sx={{ fontSize: "24px", fontWeight: "600", mb: "15px" }}
+              >
                 {countryName}
               </Typography>
               <Grid container>
                 <Box>
-                  <Stack>
+                  <Stack gap={0.5}>
                     <Typography>Native Name: TBA</Typography>
                     <Typography>
                       Population: {formatPopulation(population)}
@@ -123,24 +129,38 @@ const CountryInfo = () => {
                   </Stack>
                 </Box>
                 <Box>
-                  <Stack>
+                  <Stack gap={0.5}>
                     <Typography>Top Level Domain: {tld}</Typography>
                     <Typography>Currencies: {currenciesList}</Typography>
                     <Typography>Languages: {languagesList}</Typography>
                   </Stack>
                 </Box>
               </Grid>
-              <Stack direction={isSmallScreen ? "column" : "row"} spacing={1}>
+              <Box
+                direction={isSmallScreen ? "column" : "row"}
+                spacing={1}
+                sx={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  gap: "5px",
+                  mt: "40px",
+                }}
+              >
+                Border Countries:
                 {borderCountries.map((border) => (
                   <Button
                     key={border}
-                    variant="outlined"
+                    sx={{
+                      ...classes.buttonStyle,
+                      boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.50)",
+                    }}
                     onClick={() => handleBorderButtonClick(border)}
                   >
                     {border}
                   </Button>
                 ))}
-              </Stack>
+              </Box>
             </Box>
           </Grid>
         </Grid>
