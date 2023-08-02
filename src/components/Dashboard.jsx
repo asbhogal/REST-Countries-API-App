@@ -130,37 +130,39 @@ const Dashboard = () => {
                           {data.name.common}
                         </Typography>
                       </Box>
-                      <Typography
-                        variant="body"
-                        sx={{
-                          fontSize: "14px",
-                          fontWeight: "600",
-                          mt: "0",
-                          mb: "0",
-                        }}
-                      >
-                        Population: {formatPopulation(data.population)}
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontSize: "14px",
-                          fontWeight: "600",
-                          mt: "0",
-                          mb: "0",
-                        }}
-                      >
-                        Region: {data.region}
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontSize: "14px",
-                          fontWeight: "600",
-                          mt: "0",
-                          mb: "0",
-                        }}
-                      >
-                        Capital: {data.capital}
-                      </Typography>
+
+                      <Box sx={{ display: "flex", gap: "5px" }}>
+                        <Typography
+                          sx={{ fontWeight: "600", fontSize: "16px" }}
+                        >
+                          Population:
+                        </Typography>
+                        <Typography sx={{ fontSize: "16px" }}>
+                          {formatPopulation(data.population)}
+                        </Typography>
+                      </Box>
+
+                      <Box sx={{ display: "flex", gap: "5px" }}>
+                        <Typography
+                          sx={{ fontWeight: "600", fontSize: "16px" }}
+                        >
+                          Region:
+                        </Typography>
+                        <Typography sx={{ fontSize: "16px" }}>
+                          {data.region}
+                        </Typography>
+                      </Box>
+
+                      <Box sx={{ display: "flex", gap: "5px" }}>
+                        <Typography
+                          sx={{ fontWeight: "600", fontSize: "16px" }}
+                        >
+                          Capital:
+                        </Typography>
+                        <Typography sx={{ fontSize: "16px" }}>
+                          {data.capital}
+                        </Typography>
+                      </Box>
                     </Stack>
                   </Box>
                 </Box>
