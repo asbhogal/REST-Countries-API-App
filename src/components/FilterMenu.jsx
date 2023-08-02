@@ -53,6 +53,12 @@ export default function FilterMenu({ setSelectedRegion }) {
         open={open}
         onClose={handleClose}
         MenuListProps={{ "aria-labelledby": "filter-button" }}
+        sx={{
+          mt: "40px",
+          "& ul": {
+            padding: 0,
+          },
+        }}
       >
         {regions.map((region) => (
           <MenuItem
@@ -65,6 +71,7 @@ export default function FilterMenu({ setSelectedRegion }) {
               ...classes.buttonStyle,
               width: "150px",
               height: "40px",
+              padding: "10px",
             }}
           >
             {region}

@@ -75,7 +75,15 @@ const Dashboard = () => {
         />
         <FilterMenu setSelectedRegion={setSelectedRegion} />
       </Grid>
-      <Grid container spacing={{ sm: 2, md: 3, lg: 10 }}>
+      <Grid
+        container
+        spacing={{ sm: 2, md: 3, lg: 10 }}
+        sx={{
+          "@media (max-width: 600px)": {
+            gap: "20px", // Apply gap only for smaller screens
+          },
+        }}
+      >
         {(searchQuery
           ? filteredCountries.slice(0, countriesToDisplay)
           : filteredRegion.slice(0, countriesToDisplay)
