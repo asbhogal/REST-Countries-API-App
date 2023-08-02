@@ -80,7 +80,7 @@ const Dashboard = () => {
         spacing={{ sm: 2, md: 3, lg: 10 }}
         sx={{
           "@media (max-width: 600px)": {
-            gap: "20px", // Apply gap only for smaller screens
+            gap: "20px",
           },
         }}
       >

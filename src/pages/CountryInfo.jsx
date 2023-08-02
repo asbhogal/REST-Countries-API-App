@@ -24,6 +24,17 @@ const CountryInfo = () => {
   const navigate = useNavigate();
   const countries = useCountryData();
 
+  const getOfficialNativeName = (countryData) => {
+    if (countryData.name && countryData.name.nativeName) {
+      const firstNativeNameKey = Object.keys(countryData.name.nativeName)[0];
+      const firstNativeNameObject =
+        countryData.name.nativeName[firstNativeNameKey];
+      return firstNativeNameObject.official || "N/A";
+    }
+
+    return "N/A";
+  };
+
   const findCountryByAltSpelling = (borderValue) => {
     const countryWithAltSpelling = countries.find(
       (data) => data.cca3 && data.cca3 === borderValue
@@ -85,7 +96,7 @@ const CountryInfo = () => {
           <KeyboardBackspaceIcon />
           Back
         </Button>
-        <Grid container spacing={{ xs: 1, md: 2 }}>
+        <Grid container spacing={{ xs: 1, md: 2 }} alignItems="center">
           <Grid item xs={12} md={isSmallScreen ? 12 : 6}>
             <img
               src={countryData.flags.png}
@@ -116,23 +127,69 @@ const CountryInfo = () => {
               >
                 {countryName}
               </Typography>
-              <Grid container>
+              <Grid container sx={{ gap: { xs: 1, md: 2, lg: "50px" } }}>
                 <Box>
                   <Stack gap={0.5}>
-                    <Typography>Native Name: TBA</Typography>
-                    <Typography>
-                      Population: {formatPopulation(population)}
-                    </Typography>
-                    <Typography>Region: {region}</Typography>
-                    <Typography>Sub Region:{subregion}</Typography>
-                    <Typography>Capital: {capital}</Typography>
+                    <Box sx={{ display: "flex", gap: "5px" }}>
+                      <Typography sx={{ fontWeight: "600" }}>
+                        Native Name:
+                      </Typography>
+                      <Typography>
+                        {getOfficialNativeName(countryData)}
+                      </Typography>
+                    </Box>
+
+                    <Box sx={{ display: "flex", gap: "5px" }}>
+                      <Typography sx={{ fontWeight: "600" }}>
+                        Population:
+                      </Typography>
+                      <Typography>{formatPopulation(population)}</Typography>
+                    </Box>
+
+                    <Box sx={{ display: "flex", gap: "5px" }}>
+                      <Typography sx={{ fontWeight: "600" }}>
+                        Region:
+                      </Typography>
+                      <Typography>{region}</Typography>
+                    </Box>
+
+                    <Box sx={{ display: "flex", gap: "5px" }}>
+                      <Typography sx={{ fontWeight: "600" }}>
+                        Sub Region:
+                      </Typography>
+                      <Typography>{subregion}</Typography>
+                    </Box>
+
+                    <Box sx={{ display: "flex", gap: "5px" }}>
+                      <Typography sx={{ fontWeight: "600" }}>
+                        Capital:
+                      </Typography>
+                      <Typography>{capital}</Typography>
+                    </Box>
                   </Stack>
                 </Box>
                 <Box>
                   <Stack gap={0.5}>
-                    <Typography>Top Level Domain: {tld}</Typography>
-                    <Typography>Currencies: {currenciesList}</Typography>
-                    <Typography>Languages: {languagesList}</Typography>
+                    <Box sx={{ display: "flex", gap: "5px" }}>
+                      <Typography sx={{ fontWeight: "600" }}>
+                        Top Level Domain:
+                      </Typography>
+                      <Typography>{tld}</Typography>
+                    </Box>
+
+                    <Box sx={{ display: "flex", gap: "5px" }}>
+                      <Typography sx={{ fontWeight: "600" }}>
+                        Currencies:
+                      </Typography>
+                      <Typography>{currenciesList}</Typography>
+                    </Box>
+
+                    <Box sx={{ display: "flex", gap: "5px" }}>
+                      <Typography sx={{ fontWeight: "600" }}>
+                        Languages:
+                      </Typography>
+                      <Typography>{languagesList}</Typography>
+                    </Box>
                   </Stack>
                 </Box>
               </Grid>
