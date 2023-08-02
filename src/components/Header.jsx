@@ -17,24 +17,33 @@ const Header = () => {
         alignItems: "center",
         justifyContent: "space-between",
         height: "5.3125rem",
-        boxShadow: "0rem 0rem .625rem 0rem rgba(0,0,0,0.50)",
+        boxShadow: "0px 0px 12px 0px rgba(140,140,140,0.6)",
         backgroundColor: theme.palette.secondaryColor,
       }}
     >
-      <Typography fontSize={28} sx={{ marginBottom: "0" }} gutterBottom>
-        Where in the world?
-      </Typography>
-      <IconButton
-        sx={{ ml: 1 }}
-        onClick={colorMode.toggleColorMode}
-        color="inherit"
+      <Container
+        maxWidth="xl"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
       >
-        {theme.palette.mode === "dark" ? (
-          <Brightness7Icon />
-        ) : (
-          <Brightness4Icon />
-        )}
-      </IconButton>
+        <Typography fontSize={28} sx={{ marginBottom: "0" }} gutterBottom>
+          Where in the world?
+        </Typography>
+        <IconButton
+          sx={{ ml: 1 }}
+          onClick={colorMode.toggleColorMode}
+          color="inherit"
+        >
+          {theme.palette.mode === "dark" ? (
+            <Brightness7Icon />
+          ) : (
+            <Brightness4Icon />
+          )}
+        </IconButton>
+      </Container>
     </Container>
   );
 };

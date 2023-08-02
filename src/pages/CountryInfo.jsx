@@ -87,7 +87,7 @@ const CountryInfo = () => {
           to="/"
           sx={{
             ...classes.buttonStyle,
-            boxShadow: "0rem 0rem .625rem 0rem rgba(0,0,0,0.50)",
+            boxShadow: "0px 0px 12px 0px rgba(140,140,140,0.6)",
 
             width: "min-content",
             margin: { xs: "1.25rem 0", sm: "1.25rem 0", md: "4.6875rem 0" },
@@ -219,7 +219,7 @@ const CountryInfo = () => {
                     key={border}
                     sx={{
                       ...classes.buttonStyle,
-                      boxShadow: "0rem 0rem .625rem 0rem rgba(0,0,0,0.50)",
+                      boxShadow: "0px 0px 12px 0px rgba(140,140,140,0.6)",
                     }}
                     onClick={() => handleBorderButtonClick(border)}
                   >

@@ -43,7 +43,7 @@ const Dashboard = () => {
     : [];
 
   return (
-    <Container maxWidth="56.25rem">
+    <Container maxWidth="xl">
       <Grid
         container
         sx={{
@@ -62,7 +62,7 @@ const Dashboard = () => {
           sx={{
             ...classes.textFieldStyle,
             width: "28.125rem",
-            boxShadow: "0rem 0rem .625rem 0rem rgba(0,0,0,0.50)",
+            boxShadow: "0px 0px 12px 0px rgba(140,140,140,0.6)",
           }}
         />
         <FilterMenu setSelectedRegion={setSelectedRegion} />
@@ -100,7 +100,7 @@ const Dashboard = () => {
                     height: "100%",
                     backgroundColor: theme.palette.secondaryColor,
                     borderRadius: ".0625rem",
-                    boxShadow: "0rem 0rem .625rem 0rem rgba(0,0,0,0.50)",
+                    boxShadow: "0px 0px 12px 0px rgba(140,140,140,0.6)",
                   }}
                 >
                   <img
@@ -181,7 +181,7 @@ const Dashboard = () => {
                 ...classes.buttonStyle,
                 height: "3.5rem",
                 padding: "0 1.25rem",
-                boxShadow: "0rem 0rem .625rem 0rem rgba(0,0,0,0.50)",
+                boxShadow: "0px 0px 12px 0px rgba(140,140,140,0.6)",
               }}
               onClick={handleViewMoreCountries}
             >

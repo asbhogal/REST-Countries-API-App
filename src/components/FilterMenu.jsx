@@ -41,7 +41,7 @@ export default function FilterMenu({ setSelectedRegion }) {
           ...classes.buttonStyle,
           height: "3.5rem",
           padding: "0 1.25rem",
-          boxShadow: "0rem 0rem .625rem 0rem rgba(0,0,0,0.50)",
+          boxShadow: "0px 0px 12px 0px rgba(140,140,140,0.6)",
         }}
       >
         {selectedRegionInternal || "FILTER BY REGION"}{" "}
