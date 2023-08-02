@@ -54,6 +54,7 @@ const CountryInfo = () => {
   };
 
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isMediumScreen = useMediaQuery((theme) => theme.breakpoints.up("md"));
 
   const {
     name: { official: countryName } = {},
@@ -89,14 +90,22 @@ const CountryInfo = () => {
             boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.50)",
 
             width: "min-content",
-            margin: "75px 0",
+            margin: { xs: "20px 0", sm: "20px 0", md: "75px 0" },
             gap: "5px",
           }}
         >
           <KeyboardBackspaceIcon />
           Back
         </Button>
-        <Grid container spacing={{ xs: 1, md: 2 }} alignItems="center">
+        <Grid
+          container
+          spacing={{ xs: 1, md: 2 }}
+          alignItems="center"
+          sx={{
+            gap: { xs: 1, md: 2, lg: "50px" },
+            flexWrap: isMediumScreen ? "nowrap" : "wrap",
+          }}
+        >
           <Grid item xs={12} md={isSmallScreen ? 12 : 6}>
             <img
               src={countryData.flags.png}
