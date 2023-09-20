@@ -22,7 +22,7 @@ const Header = () => {
       }}
     >
       <Container
-        maxWidth="xl"
+        maxWidth="lg"
         sx={{
           display: "flex",
           alignItems: "center",

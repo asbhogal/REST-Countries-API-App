@@ -43,7 +43,7 @@ const Dashboard = () => {
     : [];
 
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="lg">
       <Grid
         container
         sx={{
@@ -69,7 +69,7 @@ const Dashboard = () => {
       </Grid>
       <Grid
         container
-        spacing={{ sm: 2, md: 3, lg: 10 }}
+        spacing={{ sm: 3, md: 3, lg: 4 }}
         sx={{
           "@media (max-width: 37.5rem)": {
             gap: "1.25rem",
