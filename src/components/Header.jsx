@@ -17,7 +17,7 @@ const Header = () => {
         alignItems: "center",
         justifyContent: "space-between",
         height: "5.3125rem",
-        boxShadow: "0px 0px 12px 0px rgba(140,140,140,0.6)",
+        boxShadow: theme.palette.boxShadow,
         backgroundColor: theme.palette.secondaryColor,
       }}
     >

@@ -11,6 +11,7 @@ const getDesignTokens = (mode) => ({
             secondary: grey[800],
           },
           secondaryColor: "#ffffff",
+          boxShadow: "rgb(210 210 210 / 46%) 0px 0px 12px 0px",
         }
       : {
           primary: blue,
@@ -23,6 +24,7 @@ const getDesignTokens = (mode) => ({
             secondary: grey,
           },
           secondaryColor: "#2b3743",
+          boxShadow: "rgb(9 9 9 / 60%) 0px 0px 12px 0px",
         }),
   },
 });

@@ -8,6 +8,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import { useTheme } from "@mui/material/styles";
 import { useParams, Link as RouterLink, useNavigate } from "react-router-dom";
 import { useCountryData } from "../hooks/useCountryData";
 import formatPopulation from "../functions/formatPopulation";
@@ -15,6 +16,7 @@ import Header from "../components/Header";
 import useStyles from "../functions/useStyles";
 
 const CountryInfo = () => {
+  const theme = useTheme();
   const classes = useStyles();
   const { name } = useParams();
   const countryData = useCountryData().find(
@@ -87,7 +89,7 @@ const CountryInfo = () => {
           to="/"
           sx={{
             ...classes.buttonStyle,
-            boxShadow: "0px 0px 12px 0px rgba(140,140,140,0.6)",
+            boxShadow: theme.palette.boxShadow,
 
             width: "min-content",
             margin: { xs: "1.25rem 0", sm: "1.25rem 0", md: "4.6875rem 0" },
@@ -219,7 +221,7 @@ const CountryInfo = () => {
                     key={border}
                     sx={{
                       ...classes.buttonStyle,
-                      boxShadow: "0px 0px 12px 0px rgba(140,140,140,0.6)",
+                      boxShadow: theme.palette.boxShadow,
                     }}
                     onClick={() => handleBorderButtonClick(border)}
                   >

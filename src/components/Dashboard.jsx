@@ -62,7 +62,7 @@ const Dashboard = () => {
           sx={{
             ...classes.textFieldStyle,
             width: "28.125rem",
-            boxShadow: "0px 0px 12px 0px rgba(140,140,140,0.6)",
+            boxShadow: theme.palette.boxShadow,
           }}
         />
         <FilterMenu setSelectedRegion={setSelectedRegion} />
@@ -100,7 +100,7 @@ const Dashboard = () => {
                     height: "100%",
                     backgroundColor: theme.palette.secondaryColor,
                     borderRadius: ".0625rem",
-                    boxShadow: "0px 0px 12px 0px rgba(140,140,140,0.6)",
+                    boxShadow: theme.palette.boxShadow,
                   }}
                 >
                   <img
@@ -181,7 +181,7 @@ const Dashboard = () => {
                 ...classes.buttonStyle,
                 height: "3.5rem",
                 padding: "0 1.25rem",
-                boxShadow: "0px 0px 12px 0px rgba(140,140,140,0.6)",
+                boxShadow: theme.palette.boxShadow,
               }}
               onClick={handleViewMoreCountries}
             >

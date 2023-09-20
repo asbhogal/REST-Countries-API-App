@@ -14,6 +14,7 @@ function CountryProvider({ children }) {
     const fetchData = async () => {
       try {
         let response = await client.get();
+        console.log(response);
         response.data.sort((a, b) =>
           a.name.common.localeCompare(b.name.common)
         );
