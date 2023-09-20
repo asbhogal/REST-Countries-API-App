@@ -41,14 +41,17 @@ const CountryInfo = () => {
     const countryWithAltSpelling = countries.find(
       (data) => data.cca3 && data.cca3 === borderValue
     );
-    return countryWithAltSpelling;
+    return countryWithAltSpelling ? countryWithAltSpelling.name.common : "N/A";
   };
 
   const handleBorderButtonClick = (border) => {
-    const countryWithAltSpelling = findCountryByAltSpelling(border);
-    countryWithAltSpelling
-      ? handleNavigate(countryWithAltSpelling.name.common)
-      : console.log(`Border country '${border}' not found.`);
+    const countryName = findCountryByAltSpelling(border);
+
+    if (countryName != "N/A") {
+      handleNavigate(countryName);
+    } else {
+      console.log(`Border country '${border}' not found.`);
+    }
   };
 
   const handleNavigate = (countryName) => {
@@ -225,7 +228,7 @@ const CountryInfo = () => {
                     }}
                     onClick={() => handleBorderButtonClick(border)}
                   >
-                    {border}
+                    {findCountryByAltSpelling(border)}
                   </Button>
                 ))}
               </Box>
