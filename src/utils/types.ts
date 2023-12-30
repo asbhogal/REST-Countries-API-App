@@ -102,3 +102,5 @@ export interface PostalCode {
 }
 
 export type Countries = Country[];
+
+export type Mode = "light" | "dark";
