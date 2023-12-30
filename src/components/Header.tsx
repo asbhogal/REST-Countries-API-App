@@ -18,7 +18,6 @@ const Header = () => {
         justifyContent: "space-between",
         width: "100%",
         height: "5.3125rem",
-        padding: "0 1.25rem",
         backgroundColor: theme.custom.secondaryColor,
         boxShadow: theme.custom.boxShadow,
       }}
@@ -31,12 +30,15 @@ const Header = () => {
           maxWidth: "100rem",
           width: "100%",
           margin: "0 auto",
+          padding: "0 1.25rem",
         }}
       >
         <Typography
           variant="h2"
-          fontSize={28}
-          sx={{ marginBottom: "0" }}
+          sx={{
+            marginBottom: "0",
+            fontSize: "clamp(1.3125rem, 1.25rem + 0.3125vw, 1.75rem);",
+          }}
           gutterBottom
         >
           Where in the world?
