@@ -15,11 +15,12 @@ import formatPopulation from "@/utils/functions/formatPopulation";
 import FilterMenu from "./FilterMenu";
 import { useState } from "react";
 import useStyles from "@/utils/functions/useStyles";
+import Test from "./Test";
 
 const Dashboard = () => {
   const theme = useTheme();
   const classes = useStyles();
-  const countries = useCountryData();
+  const { country: countries, isLoading } = useCountryData();
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [countriesToDisplay, setCountriesToDisplay] = useState(20);
@@ -86,10 +87,18 @@ const Dashboard = () => {
           },
         }}
       >
-        {(searchQuery
-          ? filteredCountries.slice(0, countriesToDisplay)
-          : filteredRegion.slice(0, countriesToDisplay)
-        ).length > 0 ? (
+        {isLoading ? (
+          Array(countriesToDisplay)
+            .fill(null)
+            .map((_, index) => (
+              <Grid item xs={12} sm={6} md={3} key={`placeholder-${index}`}>
+                <Test />
+              </Grid>
+            ))
+        ) : (searchQuery
+            ? filteredCountries.slice(0, countriesToDisplay)
+            : filteredRegion.slice(0, countriesToDisplay)
+          ).length > 0 ? (
           (searchQuery
             ? filteredCountries.slice(0, countriesToDisplay)
             : filteredRegion.slice(0, countriesToDisplay)

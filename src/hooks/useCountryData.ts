@@ -6,5 +6,5 @@ export function useCountryData() {
   if (!context) {
     throw new Error("useCountryData must be used within a CountryProvider");
   }
-  return context.country;
+  return { country: context.country, isLoading: context.isLoading };
 }

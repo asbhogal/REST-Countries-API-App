@@ -3,14 +3,17 @@ import useSWR from "swr";
 import { fetcher } from "@/utils/functions/fetcher";
 import { Countries, Country } from "@/utils/types/country";
 
-const CountryContext = createContext<{ country: Countries; regions: string[] }>(
-  { country: [], regions: [] }
-);
+const CountryContext = createContext<{
+  country: Countries;
+  regions: string[];
+  isLoading: boolean;
+}>({ country: [], regions: [], isLoading: true });
 
 function CountryProvider({ children }: { children: React.ReactNode }) {
   const [country, getCountry] = useState<Countries>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const { data, error, isLoading } = useSWR<Countries>(
+  const { data, error } = useSWR<Countries>(
     "https://restcountries.com/v3.1/all",
     fetcher
   );
@@ -21,17 +24,17 @@ function CountryProvider({ children }: { children: React.ReactNode }) {
         a.name.common.localeCompare(b.name.common)
       );
       getCountry(data);
+      setIsLoading(false);
     }
   }, [data]);
 
   if (error)
     return <p>Error fetching data, please contact the website owner</p>;
-  if (isLoading) return <p>Loading data...</p>;
 
   const regions = [...new Set(country.map((data) => data.region))];
 
   return (
-    <CountryContext.Provider value={{ country, regions }}>
+    <CountryContext.Provider value={{ country, regions, isLoading }}>
       {children}
     </CountryContext.Provider>
   );

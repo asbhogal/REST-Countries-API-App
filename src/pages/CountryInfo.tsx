@@ -19,9 +19,8 @@ import { Country } from "@/utils/types/country";
 const CountryInfo = () => {
   const classes = useStyles();
   const { name } = useParams();
-  const countryData = useCountryData().find(
-    (data) => data.name.common === name
-  );
+  const { country } = useCountryData();
+  const countryData = country.find((data) => data.name.common === name);
 
   const navigate = useNavigate();
   const countries = useCountryData();
@@ -38,7 +37,7 @@ const CountryInfo = () => {
   };
 
   const findCountryByAltSpelling = (borderValue: string) => {
-    const countryWithAltSpelling = countries.find(
+    const countryWithAltSpelling = countries.country.find(
       (data) => data.cca3 && data.cca3 === borderValue
     );
     return countryWithAltSpelling ? countryWithAltSpelling.name.common : "N/A";
