@@ -8,12 +8,13 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
-import { useTheme } from "@mui/material/styles";
+import { Theme, useTheme } from "@mui/material/styles";
 import { useParams, Link as RouterLink, useNavigate } from "react-router-dom";
 import { useCountryData } from "@/hooks/useCountryData";
 import formatPopulation from "@/functions/formatPopulation";
 import Header from "@/components/Header";
 import useStyles from "@/functions/useStyles";
+import { Country } from "@/utils/types/country";
 
 const CountryInfo = () => {
   const theme = useTheme();
@@ -26,7 +27,7 @@ const CountryInfo = () => {
   const navigate = useNavigate();
   const countries = useCountryData();
 
-  const getOfficialNativeName = (countryData) => {
+  const getOfficialNativeName = (countryData: Country) => {
     if (countryData.name && countryData.name.nativeName) {
       const firstNativeNameKey = Object.keys(countryData.name.nativeName)[0];
       const firstNativeNameObject =
@@ -37,14 +38,14 @@ const CountryInfo = () => {
     return "N/A";
   };
 
-  const findCountryByAltSpelling = (borderValue) => {
+  const findCountryByAltSpelling = (borderValue: string) => {
     const countryWithAltSpelling = countries.find(
       (data) => data.cca3 && data.cca3 === borderValue
     );
     return countryWithAltSpelling ? countryWithAltSpelling.name.common : "N/A";
   };
 
-  const handleBorderButtonClick = (border) => {
+  const handleBorderButtonClick = (border: string) => {
     const countryName = findCountryByAltSpelling(border);
 
     if (countryName != "N/A") {
@@ -54,16 +55,19 @@ const CountryInfo = () => {
     }
   };
 
-  const handleNavigate = (countryName) => {
+  const handleNavigate = (countryName: string) => {
     navigate(`/country/${countryName}`);
   };
 
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  const isMediumScreen = useMediaQuery((theme) => theme.breakpoints.up("md"));
+  const isSmallScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("sm")
+  );
+  const isMediumScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.up("md")
+  );
 
   const {
-    name: { official: countryName } = {},
-    borders,
+    name: { official: countryName } = { official: "" },
     capital,
     currencies,
     languages,
@@ -76,7 +80,11 @@ const CountryInfo = () => {
   const currenciesList = currencies ? Object.values(currencies)[0].name : "";
   const languagesList = languages ? Object.values(languages).join(", ") : "";
 
-  const borderCountries = borders || [];
+  interface CountryWithBorders extends Country {
+    borders?: string[];
+  }
+
+  const borderCountries = (countryData as CountryWithBorders)?.borders || [];
 
   if (!countryData) {
     return <h1>No Country Info Found</h1>;
@@ -92,7 +100,7 @@ const CountryInfo = () => {
           to="/"
           sx={{
             ...classes.buttonStyle,
-            boxShadow: theme.palette.boxShadow,
+            boxShadow: theme.custom.boxShadow,
 
             width: "min-content",
             margin: { xs: "1.25rem 0", sm: "1.25rem 0", md: "4.6875rem 0" },
@@ -157,7 +165,11 @@ const CountryInfo = () => {
                       <Typography sx={{ fontWeight: "600" }}>
                         Population:
                       </Typography>
-                      <Typography>{formatPopulation(population)}</Typography>
+                      <Typography>
+                        {population
+                          ? formatPopulation(population)
+                          : "Population unknown"}
+                      </Typography>
                     </Box>
 
                     <Box sx={{ display: "flex", gap: ".3125rem" }}>
@@ -208,10 +220,9 @@ const CountryInfo = () => {
                 </Box>
               </Grid>
               <Box
-                direction={isSmallScreen ? "column" : "row"}
-                spacing={1}
                 sx={{
                   display: "flex",
+                  flexDirection: isSmallScreen ? "column" : "row",
                   flexWrap: "wrap",
                   alignItems: "center",
                   gap: ".3125rem",
@@ -224,7 +235,7 @@ const CountryInfo = () => {
                     key={border}
                     sx={{
                       ...classes.buttonStyle,
-                      boxShadow: theme.palette.boxShadow,
+                      boxShadow: theme.custom.boxShadow,
                     }}
                     onClick={() => handleBorderButtonClick(border)}
                   >
