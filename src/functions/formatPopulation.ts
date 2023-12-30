@@ -1,7 +1,6 @@
-import { Countries } from "@/utils/types";
 import { INTEGER_FORMATTER } from "./INTEGER_FORMATTER";
 
-const formatPopulation = (population: Countries) => {
+const formatPopulation = (population: number) => {
   if (typeof population !== "number") {
     return "";
   }

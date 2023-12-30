@@ -24,7 +24,7 @@ const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [countriesToDisplay, setCountriesToDisplay] = useState(20);
 
-  const handleSearchEvent = (event) => {
+  const handleSearchEvent = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
 
@@ -62,7 +62,7 @@ const Dashboard = () => {
           sx={{
             ...classes.textFieldStyle,
             width: "28.125rem",
-            boxShadow: theme.palette.boxShadow,
+            boxShadow: theme.custom.boxShadow,
           }}
         />
         <FilterMenu setSelectedRegion={setSelectedRegion} />
@@ -98,9 +98,9 @@ const Dashboard = () => {
                     display: "flex",
                     flexDirection: "column",
                     height: "100%",
-                    backgroundColor: theme.palette.secondaryColor,
+                    backgroundColor: theme.custom.secondaryColor,
                     borderRadius: ".0625rem",
-                    boxShadow: theme.palette.boxShadow,
+                    boxShadow: theme.custom.boxShadow,
                   }}
                 >
                   <img
@@ -181,7 +181,7 @@ const Dashboard = () => {
                 ...classes.buttonStyle,
                 height: "3.5rem",
                 padding: "0 1.25rem",
-                boxShadow: theme.palette.boxShadow,
+                boxShadow: theme.custom.boxShadow,
               }}
               onClick={handleViewMoreCountries}
             >

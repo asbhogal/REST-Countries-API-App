@@ -3,12 +3,17 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import getDesignTokens from "@/constants/customTheme";
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { Mode } from "@/utils/types";
 
 export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
-export default function ThemeToggle({ children }) {
+export default function ThemeToggle({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-  const [mode, setMode] = useState(prefersDarkMode ? "dark" : "light");
+  const [mode, setMode] = useState<Mode>(prefersDarkMode ? "dark" : "light");
 
   const colorMode = useMemo(
     () => ({
