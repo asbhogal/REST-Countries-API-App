@@ -11,9 +11,9 @@ import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { Theme } from "@mui/material/styles";
 import { useParams, Link as RouterLink, useNavigate } from "react-router-dom";
 import { useCountryData } from "@/hooks/useCountryData";
-import formatPopulation from "@/functions/formatPopulation";
+import formatPopulation from "@/utils/functions/formatPopulation";
 import Header from "@/components/Header";
-import useStyles from "@/functions/useStyles";
+import useStyles from "@/utils/functions/useStyles";
 import { Country } from "@/utils/types/country";
 
 const CountryInfo = () => {

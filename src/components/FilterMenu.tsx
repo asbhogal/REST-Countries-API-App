@@ -1,5 +1,5 @@
 import { Button, Menu, MenuItem } from "@mui/material";
-import useStyles from "@/functions/useStyles";
+import useStyles from "@/utils/functions/useStyles";
 import { useContext, useState } from "react";
 import { CountryContext } from "@/context/CountryContext";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
