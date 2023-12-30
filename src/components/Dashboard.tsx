@@ -3,6 +3,7 @@ import {
   Button,
   Grid,
   Link,
+  Skeleton,
   Stack,
   TextField,
   Typography,
@@ -15,7 +16,6 @@ import formatPopulation from "@/utils/functions/formatPopulation";
 import FilterMenu from "./FilterMenu";
 import { useState } from "react";
 import useStyles from "@/utils/functions/useStyles";
-import Test from "./Test";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -92,7 +92,15 @@ const Dashboard = () => {
             .fill(null)
             .map((_, index) => (
               <Grid item xs={12} sm={6} md={3} key={`placeholder-${index}`}>
-                <Test />
+                <Skeleton
+                  variant="rectangular"
+                  animation="wave"
+                  sx={{
+                    height: "29.6875rem",
+                    maxWidth: "25rem",
+                    width: "100%",
+                  }}
+                />
               </Grid>
             ))
         ) : (searchQuery
