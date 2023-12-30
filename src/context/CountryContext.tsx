@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
-import { Countries, Country } from "@/utils/types";
+import { Countries, Country } from "@/utils/types/country";
 
 const CountryContext = createContext<{ country: Countries; regions: string[] }>(
   { country: [], regions: [] }

@@ -1,20 +1,5 @@
-import { Mode } from "@/utils/types";
+import { Mode } from "@/utils/types/mode";
 import { blue, blueGrey, grey } from "@mui/material/colors";
-
-declare module "@mui/material/styles" {
-  interface Theme {
-    custom: {
-      boxShadow: string;
-      secondaryColor: string;
-    };
-  }
-  interface ThemeOptions {
-    custom?: {
-      boxShadow?: string;
-      secondaryColor?: string;
-    };
-  }
-}
 
 const getDesignTokens = (mode: Mode) => ({
   palette: {
