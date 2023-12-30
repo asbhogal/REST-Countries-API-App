@@ -96,8 +96,8 @@ const Dashboard = () => {
                   variant="rectangular"
                   animation="wave"
                   sx={{
-                    height: "29.6875rem",
-                    maxWidth: "25rem",
+                    height: "27.5rem",
+                    maxWidth: "22.0625rem",
                     width: "100%",
                   }}
                 />
