@@ -30,6 +30,9 @@ const theme = createTheme({
         font-display: swap;
         font-weight: 600;
         src: url(node_modules/@fontsource/nunito-sans/600.css) format('woff2');
+      }
+      html {
+        scroll-behavior: smooth;
       }`,
     },
   },
