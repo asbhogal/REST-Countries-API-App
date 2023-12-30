@@ -1,29 +1,56 @@
-import { createContext, useEffect, useState } from "react";
-import axios from "axios";
+import { createContext, useState } from "react";
+import { request } from "graphql-request";
+import useSWR from "swr";
 
 const CountryContext = createContext();
 
-const client = axios.create({
-  baseURL: "https://restcountries.com/v3.1/all",
-});
+const fetcher = (query) => request("/api/all", query);
 
-function CountryProvider({ children }) {
+function CountryProvider({ children }: { children: React.ReactNode }) {
   const [country, getCountry] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        let response = await client.get();
-        response.data.sort((a, b) =>
-          a.name.common.localeCompare(b.name.common)
-        );
-        getCountry(response.data);
-      } catch (error) {
-        console.log(error);
+  const { data, error, isLoading } = useSWR(
+    `{
+    name {
+      common
+      official
+      nativeName {
+        eng {
+          official
+          common
+        }
       }
-    };
-    fetchData();
-  }, []);
+    }
+    cca2
+    ccn3
+    cca3
+    currencies {
+      name
+      symbol
+    },
+    capital
+    altSpellings
+    region
+    subregion
+    languages {
+      eng
+    }
+    flag
+    population
+    flags {
+      png
+      svg
+    }
+  }`,
+    fetcher
+  );
+
+  if (error)
+    return <p>Error fetching data, please contact the website owner</p>;
+  if (isLoading) return <p>Loading data...</p>;
+
+  data.sort((a, b) => a.name.common.localeCompare(b.name.common));
+  getCountry(data);
 
   const regions = [...new Set(country.map((data) => data.region))];
 
