@@ -1,14 +1,12 @@
 import { Button, Menu, MenuItem } from "@mui/material";
 import useStyles from "@/functions/useStyles";
 import { useContext, useState } from "react";
-import { useTheme } from "@mui/material/styles";
 import { CountryContext } from "@/context/CountryContext";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { FilterMenuProps } from "@/utils/types/menu";
 
 export default function FilterMenu({ setSelectedRegion }: FilterMenuProps) {
-  const theme = useTheme();
   const classes = useStyles();
   const { regions } = useContext(CountryContext);
   const [anchorEl, setAnchorEl] = useState<null | HTMLButtonElement>(null);
@@ -46,7 +44,6 @@ export default function FilterMenu({ setSelectedRegion }: FilterMenuProps) {
           ...classes.buttonStyle,
           height: "3.5rem",
           padding: "0 1.25rem",
-          boxShadow: theme.custom.boxShadow,
         }}
       >
         {selectedRegionInternal || "FILTER BY REGION"}{" "}

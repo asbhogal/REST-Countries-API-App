@@ -1,13 +1,13 @@
 import {
   Box,
   Button,
-  Container,
   Grid,
   Link,
   Stack,
   TextField,
   Typography,
 } from "@mui/material";
+import { visuallyHidden } from "@mui/utils";
 import { Link as RouterLink } from "react-router-dom";
 import { useCountryData } from "@/hooks/useCountryData";
 import { useTheme } from "@mui/material/styles";
@@ -43,7 +43,18 @@ const Dashboard = () => {
     : [];
 
   return (
-    <Container maxWidth="lg">
+    <Box
+      component="main"
+      sx={{
+        maxWidth: "100rem",
+        width: "100%",
+        margin: "0 auto",
+        padding: "0 1.25rem",
+      }}
+    >
+      <Typography variant="h1" style={visuallyHidden}>
+        Where in the world? Countries search
+      </Typography>
       <Grid
         container
         sx={{
@@ -62,7 +73,6 @@ const Dashboard = () => {
           sx={{
             ...classes.textFieldStyle,
             width: "28.125rem",
-            boxShadow: theme.custom.boxShadow,
           }}
         />
         <FilterMenu setSelectedRegion={setSelectedRegion} />
@@ -100,7 +110,6 @@ const Dashboard = () => {
                     height: "100%",
                     backgroundColor: theme.custom.secondaryColor,
                     borderRadius: ".0625rem",
-                    boxShadow: theme.custom.boxShadow,
                   }}
                 >
                   <img
@@ -181,7 +190,6 @@ const Dashboard = () => {
                 ...classes.buttonStyle,
                 height: "3.5rem",
                 padding: "0 1.25rem",
-                boxShadow: theme.custom.boxShadow,
               }}
               onClick={handleViewMoreCountries}
             >
@@ -190,7 +198,7 @@ const Dashboard = () => {
           </Box>
         </Grid>
       </Grid>
-    </Container>
+    </Box>
   );
 };
 

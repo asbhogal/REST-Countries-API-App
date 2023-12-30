@@ -6,6 +6,9 @@ const getDesignTokens = (mode: Mode) => ({
     mode,
     ...(mode === "light"
       ? {
+          background: {
+            default: grey[100],
+          },
           text: {
             primary: "hsl(200, 15%, 8%)",
             secondary: grey[800],
