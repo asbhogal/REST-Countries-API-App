@@ -20,7 +20,7 @@ const Dashboard = () => {
   const theme = useTheme();
   const classes = useStyles();
   const countries = useCountryData();
-  const [selectedRegion, setSelectedRegion] = useState(null);
+  const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [countriesToDisplay, setCountriesToDisplay] = useState(20);
 

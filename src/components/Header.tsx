@@ -10,15 +10,14 @@ const Header = () => {
   const colorMode = useContext(ColorModeContext);
   return (
     <Container
-      height={6}
-      maxWidth="75rem"
       sx={{
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
+        maxWidth: "75rem",
         height: "5.3125rem",
-        boxShadow: theme.palette.boxShadow,
-        backgroundColor: theme.palette.secondaryColor,
+        boxShadow: theme.custom.boxShadow,
+        backgroundColor: theme.custom.secondaryColor,
       }}
     >
       <Container
