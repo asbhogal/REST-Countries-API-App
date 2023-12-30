@@ -1,6 +1,6 @@
 import { createContext, useState, useMemo } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import getDesignTokens from "../constants/customTheme";
+import getDesignTokens from "@/constants/customTheme";
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
 

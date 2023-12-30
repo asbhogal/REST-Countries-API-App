@@ -1,8 +1,8 @@
 import { Button, Menu, MenuItem } from "@mui/material";
-import useStyles from "../functions/useStyles";
+import useStyles from "@/functions/useStyles";
 import { useContext, useState } from "react";
 import { useTheme } from "@mui/material/styles";
-import { CountryContext } from "../context/CountryContext";
+import { CountryContext } from "@/context/CountryContext";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 

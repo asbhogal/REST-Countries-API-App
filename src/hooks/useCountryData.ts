@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CountryContext } from "../context/CountryContext";
+import { CountryContext } from "@/context/CountryContext";
 
 export function useCountryData() {
   const context = useContext(CountryContext);

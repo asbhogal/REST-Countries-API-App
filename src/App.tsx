@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
-import Dashboard from "./components/Dashboard";
-import Header from "./components/Header";
+import Dashboard from "@/components/Dashboard";
+import Header from "@/components/Header";
 import { useCountryData } from "./hooks/useCountryData";
 
 function App() {

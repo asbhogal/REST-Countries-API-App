@@ -9,12 +9,12 @@ import {
   Typography,
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
-import { useCountryData } from "../hooks/useCountryData";
+import { useCountryData } from "@/hooks/useCountryData";
 import { useTheme } from "@mui/material/styles";
-import formatPopulation from "../functions/formatPopulation";
+import formatPopulation from "@/functions/formatPopulation";
 import FilterMenu from "./FilterMenu";
 import { useState } from "react";
-import useStyles from "../functions/useStyles";
+import useStyles from "@/functions/useStyles";
 
 const Dashboard = () => {
   const theme = useTheme();

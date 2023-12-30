@@ -10,10 +10,10 @@ import {
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { useTheme } from "@mui/material/styles";
 import { useParams, Link as RouterLink, useNavigate } from "react-router-dom";
-import { useCountryData } from "../hooks/useCountryData";
-import formatPopulation from "../functions/formatPopulation";
-import Header from "../components/Header";
-import useStyles from "../functions/useStyles";
+import { useCountryData } from "@/hooks/useCountryData";
+import formatPopulation from "@/functions/formatPopulation";
+import Header from "@/components/Header";
+import useStyles from "@/functions/useStyles";
 
 const CountryInfo = () => {
   const theme = useTheme();
