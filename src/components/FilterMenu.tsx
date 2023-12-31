@@ -44,9 +44,10 @@ export default function FilterMenu({ setSelectedRegion }: FilterMenuProps) {
           ...classes.buttonStyle,
           height: "3.5rem",
           padding: "0 1.25rem",
+          textTransform: "none",
         }}
       >
-        {selectedRegionInternal || "FILTER BY REGION"}{" "}
+        {selectedRegionInternal || "Filter by Region"}
         {isClicked ? <ExpandLessIcon /> : <ExpandMoreIcon />}
       </Button>
       <Menu

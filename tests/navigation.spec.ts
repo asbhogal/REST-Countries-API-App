@@ -27,6 +27,6 @@ test("clicking the region in the filter menu shows the correct results", async (
   page,
 }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: "FILTER BY REGION" }).click();
+  await page.getByRole("button", { name: "Filter by Region" }).click();
   await page.getByRole("menuitem", { name: "Oceania" }).click();
 });

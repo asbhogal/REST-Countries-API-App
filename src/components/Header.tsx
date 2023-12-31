@@ -27,7 +27,7 @@ const Header = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          maxWidth: "75rem",
+          maxWidth: "90rem",
           width: "100%",
           margin: "0 auto",
           padding: "0 1.25rem",
@@ -37,6 +37,7 @@ const Header = () => {
           variant="h2"
           sx={{
             marginBottom: "0",
+            fontWeight: "bold",
             fontSize: "clamp(1.3125rem, 1.25rem + 0.3125vw, 1.75rem);",
           }}
           gutterBottom
