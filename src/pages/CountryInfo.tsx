@@ -87,10 +87,6 @@ const CountryInfo = () => {
   return (
     <>
       <Header />
-      <Typography
-        variant="h1"
-        style={visuallyHidden}
-      >{`${countryName} country info`}</Typography>
       <Box
         component="main"
         sx={{
@@ -101,6 +97,10 @@ const CountryInfo = () => {
           margin: "0 auto",
         }}
       >
+        <Typography
+          variant="h1"
+          style={visuallyHidden}
+        >{`${countryName} country info`}</Typography>
         <Button
           component={RouterLink}
           to="/"
