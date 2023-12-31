@@ -2,12 +2,14 @@ import {
   Box,
   Button,
   Grid,
+  InputAdornment,
   Link,
   Skeleton,
   Stack,
   TextField,
   Typography,
 } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 import { visuallyHidden } from "@mui/utils";
 import { Link as RouterLink } from "react-router-dom";
 import { useCountryData } from "@/hooks/useCountryData";
@@ -47,7 +49,7 @@ const Dashboard = () => {
     <Box
       component="main"
       sx={{
-        maxWidth: "100rem",
+        maxWidth: "75rem",
         width: "100%",
         margin: "0 auto",
         padding: "0 1.25rem",
@@ -67,13 +69,21 @@ const Dashboard = () => {
         }}
       >
         <TextField
-          label="Search for country"
+          aria-label="Search for a country"
+          placeholder="Search for a country..."
           variant="outlined"
           value={searchQuery}
           onChange={handleSearchEvent}
           sx={{
             ...classes.textFieldStyle,
             width: "28.125rem",
+          }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon aria-hidden="true" focusable="false" />
+              </InputAdornment>
+            ),
           }}
         />
         <FilterMenu setSelectedRegion={setSelectedRegion} />

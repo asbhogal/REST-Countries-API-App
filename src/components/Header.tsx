@@ -27,7 +27,7 @@ const Header = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          maxWidth: "100rem",
+          maxWidth: "75rem",
           width: "100%",
           margin: "0 auto",
           padding: "0 1.25rem",
