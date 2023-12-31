@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Container,
   Grid,
   Stack,
   Typography,
@@ -90,8 +89,15 @@ const CountryInfo = () => {
   return (
     <>
       <Header />
-      <Container
-        sx={{ display: "flex", flexDirection: "column", maxWidth: "62.5rem" }}
+      <Box
+        component="main"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          maxWidth: "62.5rem",
+          width: "100%",
+          margin: "0 auto",
+        }}
       >
         <Button
           component={RouterLink}
@@ -242,7 +248,7 @@ const CountryInfo = () => {
             </Box>
           </Grid>
         </Grid>
-      </Container>
+      </Box>
     </>
   );
 };
