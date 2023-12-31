@@ -6,6 +6,7 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
+import { visuallyHidden } from "@mui/utils";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { Theme } from "@mui/material/styles";
 import { useParams, Link as RouterLink, useNavigate } from "react-router-dom";
@@ -86,6 +87,10 @@ const CountryInfo = () => {
   return (
     <>
       <Header />
+      <Typography
+        variant="h1"
+        style={visuallyHidden}
+      >{`${countryName} country info`}</Typography>
       <Box
         component="main"
         sx={{
@@ -130,7 +135,7 @@ const CountryInfo = () => {
                 style={{
                   width: "100%",
                   height: isSmallScreen ? "100%" : "24.375rem",
-                  objectFit: "cover",
+                  objectFit: "contain",
                 }}
               />
             </Grid>
@@ -146,6 +151,7 @@ const CountryInfo = () => {
                 }}
               >
                 <Typography
+                  variant="h2"
                   sx={{ fontSize: "1.5rem", fontWeight: "600", mb: ".9375rem" }}
                 >
                   {countryName}
