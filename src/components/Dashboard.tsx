@@ -52,7 +52,7 @@ const Dashboard = () => {
         maxWidth: "90rem",
         width: "100%",
         margin: "0 auto",
-        padding: "0 1.25rem",
+        padding: { xs: "0 1rem", sm: "0 5rem" },
       }}
     >
       <Typography variant="h1" style={visuallyHidden}>
@@ -127,6 +127,8 @@ const Dashboard = () => {
                 to={`/country/${data.name.common}`}
                 color="text.primary"
                 sx={{
+                  display: "flex",
+                  height: "100%",
                   textDecoration: "none",
                 }}
               >
@@ -134,7 +136,6 @@ const Dashboard = () => {
                   sx={{
                     display: "flex",
                     flexDirection: "column",
-                    height: "100%",
                     backgroundColor: theme.custom.secondaryColor,
                     borderRadius: ".0625rem",
                   }}
@@ -161,6 +162,9 @@ const Dashboard = () => {
                             mt: "0",
                             mb: ".3125rem",
                             textDecoration: "none",
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
                           }}
                         >
                           {data.name.common}
@@ -169,18 +173,37 @@ const Dashboard = () => {
 
                       <Box sx={{ display: "flex", gap: ".3125rem" }}>
                         <Typography
-                          sx={{ fontWeight: "600", fontSize: "1rem" }}
+                          sx={{
+                            fontWeight: "600",
+                            fontSize: "1rem",
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                          }}
                         >
                           Population:
                         </Typography>
-                        <Typography sx={{ fontSize: "1rem" }}>
+                        <Typography
+                          sx={{
+                            fontSize: "1rem",
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                          }}
+                        >
                           {formatPopulation(data.population)}
                         </Typography>
                       </Box>
 
                       <Box sx={{ display: "flex", gap: ".3125rem" }}>
                         <Typography
-                          sx={{ fontWeight: "600", fontSize: "1rem" }}
+                          sx={{
+                            fontWeight: "600",
+                            fontSize: "1rem",
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                          }}
                         >
                           Region:
                         </Typography>

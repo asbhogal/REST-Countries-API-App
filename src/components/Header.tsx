@@ -30,7 +30,7 @@ const Header = () => {
           maxWidth: "90rem",
           width: "100%",
           margin: "0 auto",
-          padding: "0 1.25rem",
+          padding: { xs: "0 1rem", sm: "0 5rem" },
         }}
       >
         <Typography
